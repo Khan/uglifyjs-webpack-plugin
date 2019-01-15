@@ -124,11 +124,8 @@ describe('when options.sourceMap', () => {
                   source() {
                     return assetContent;
                   },
-                  sourceAndMap() {
-                    return {
-                      source: this.source(),
-                      map: {},
-                    };
+                  map() {
+                    return {};
                   },
                 };
               }

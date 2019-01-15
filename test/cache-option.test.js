@@ -71,6 +71,7 @@ describe('when applied with `cache` option', () => {
     new UglifyJsPlugin({ cache: true }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
+    cacache.get.info = jest.fn(cacache.get.info);
     cacache.put = jest.fn(cacache.put);
 
     return compile(compiler).then((stats) => {
@@ -106,6 +107,7 @@ describe('when applied with `cache` option', () => {
 
             cacache.get.mockClear();
             cacache.put.mockClear();
+            cacache.get.info.mockClear();
           })
           // Run second compilation to ensure cached files will be taken from cache
           .then(() => compile(compiler))
@@ -146,6 +148,7 @@ describe('when applied with `cache` option', () => {
     new UglifyJsPlugin({ cache: otherCacheDir }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
+    cacache.get.info = jest.fn(cacache.get.info);
     cacache.put = jest.fn(cacache.put);
 
     return compile(compiler).then((stats) => {
@@ -180,6 +183,7 @@ describe('when applied with `cache` option', () => {
             expect(cacheKeys.length).toBe(countAssets);
 
             cacache.get.mockClear();
+            cacache.get.info.mockClear();
             cacache.put.mockClear();
           })
           // Run second compilation to ensure cached files will be taken from cache
@@ -231,6 +235,7 @@ describe('when applied with `cache` option', () => {
     }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
+    cacache.get.info = jest.fn(cacache.get.info);
     cacache.put = jest.fn(cacache.put);
 
     return compile(compiler).then((stats) => {
@@ -277,6 +282,7 @@ describe('when applied with `cache` option', () => {
             });
 
             cacache.get.mockClear();
+            cacache.get.info.mockClear();
             cacache.put.mockClear();
           })
           // Run second compilation to ensure cached files will be taken from cache

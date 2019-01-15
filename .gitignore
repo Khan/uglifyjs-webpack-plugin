@@ -1,6 +1,5 @@
 node_modules/
 build/
-dist/
 coverage/
 *.log
 .eslintcache
@@ -10,7 +9,6 @@ logs
 npm-debug.log*
 yarn-debug.log*
 /coverage
-/dist
 /local
 /reports
 /node_modules
